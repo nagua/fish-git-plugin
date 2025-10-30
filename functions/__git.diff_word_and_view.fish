@@ -1,4 +1,4 @@
-function __git.diff_word_and_view -d "XXX"
+function __git.diff_word_and_view -w "git diff" -d "View git diff in a readonly editor"
   if type -q nvim
     git diff -w $argv | nvim -R -
   else if type -q view
@@ -7,5 +7,4 @@ function __git.diff_word_and_view -d "XXX"
     git diff -w $argv | vim -R -
   end
 end
-complete -c __git.diff_word_and_view --wraps "git diff"
 

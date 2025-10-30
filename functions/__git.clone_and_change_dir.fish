@@ -1,4 +1,4 @@
-function __git.clone_and_change_dir -d "XXX"
+function __git.clone_and_change_dir -w "git clone" -d "Git clone a repository and change into the directory afterwards"
   set -l repo ""
   for arg in $argv
     if string match -qr '^(ssh://|git://|ftps?://|https?://|.*@.*)' '$arg'
@@ -18,5 +18,4 @@ function __git.clone_and_change_dir -d "XXX"
     cd (basename $repo .git)
   end
 end
-complete -c __git.clone_and_change_dir --wraps "git clone"
 
